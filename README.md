@@ -35,7 +35,7 @@ The paper was kind of hard to read.  It felt like a biology paper, where
     they try to cram as much methodological details in as possible without
     paying attention to how easy the paper is to understand.
 
------------ Summary and review comments -----------
+----------- Summary and review comments ----------
 This paper trains a classifier to tell if two URLs are about the same
     person (or thing).  The classifier uses a standard set of features, but
     they propose a new approach for getting better training data.  The idea is
