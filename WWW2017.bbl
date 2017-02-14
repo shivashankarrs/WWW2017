@@ -1,0 +1,29 @@
+\begin{thebibliography}{1}
+
+\bibitem{chisholm2016akbc}
+A.~Chisholm, W.~Radford, and B.~Hachey.
+\newblock Discovering entity knowledge bases on the web.
+\newblock In {\em Workshop on Automated Knowledge Base Construction}, 2016.
+
+\bibitem{delgado2014data}
+A.~D. Delgado, R.~Mart{\'\i}nez, V.~V{\'\i}ctor~Fresno, and S.~Montalvo.
+\newblock A data driven approach for person name disambiguation in web search
+  results.
+\newblock In {\em COLING}, 2014.
+
+\bibitem{Elkan:2008:LCO:1401890.1401920}
+C.~Elkan and K.~Noto.
+\newblock Learning classifiers from only positive and unlabeled data.
+\newblock In {\em SIGKDD}, 2008.
+
+\bibitem{liu2002partially}
+B.~Liu, W.~S. Lee, and X.~Li.
+\newblock Partially supervised classification of text documents.
+\newblock In {\em ICML}, 2002.
+
+\bibitem{nuray2009exploiting}
+R.~Nuray-Turan, Z.~Chen, D.~V. Kalashnikov, and S.~Mehrotra.
+\newblock Exploiting web querying for web people search in weps2.
+\newblock In {\em Web People Search Evaluation Workshop, WWW}, 2009.
+
+\end{thebibliography}

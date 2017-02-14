@@ -1,0 +1,433 @@
+% This is "sig-alternate.tex" V2.1 April 2013
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{sig-alternate-05-2015}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+
+
+\begin{document}
+
+% Copyright
+\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+%\doi{10.475/123_4}
+
+% ISBN
+%\isbn{123-4567-24-567/08/06}
+
+%Conference
+%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+%\acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+%\title{Pairwise Web URL classification for Cross-KB Coreference Resolution using Distant Supervision}
+%\title{Pairwise Web URL classification for Cross-KB Entity Linking using Distant Supervision}
+\title{Pairwise Webpage Coreference Classification using Distant Supervision}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{4} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+%\alignauthor
+%S. Shivashankar\\
+%       \affaddr{Department of CIS,}\\
+%       \affaddr{University of Melbourne}\\
+%       \small {shivashankar@student.unimelb.edu.au}
+%% 2nd. author
+%\alignauthor
+%Trevor Cohn\\
+%       \affaddr{Department of CIS,}\\
+%       \affaddr{University of Melbourne}\\
+%	\small {t.cohn@unimelb.edu.au}
+%% 3rd. author
+%\alignauthor Tim Baldwin\\
+%       \affaddr{Department of CIS,}\\
+%       \affaddr{University of Melbourne}\\
+%       \small{tb@ldwin.net}
+%\alignauthor Julian Brooke\\
+%       \affaddr{Department of CIS,}\\
+%       \affaddr{University of Melbourne}\\
+%       \small{julian.brooke@gmail.com}
+}
+
+%To achieve a good coverage of entities across multiple domains, web URL end-points can be considered as a knowledge base (KB). Since 
+\maketitle
+\begin{abstract}
+%Our objective is to determine whether two candidate endpoint URLs refer to the same underlying entity. 
+Multiple URL endpoints exist for an entity on the web. Hence we address the fundamental task of pairwise webpage coreference classification in-order to build coreferent set of endpoints. To strike a balance between unsupervised and supervised methods that require annotated data, we build a positive and unlabeled (PU) learning model where we obtain positive examples using web-search-based distant supervision.  We evaluate our proposed approach using SemEval-2007 WePS and ALTA-2016 shared task datasets.
+
+%Since web URL end-points consist of entries from multiple KBs, we address a fundamental sub-task of cross-KB coreference resolution. 
+
+
+%This can be seen as a precursor to grouping web endpoints into coreferent sets which can enable various tasks such as jointly disambiguating entities in target %text, entity related information extraction, etc. 
+
+%This pairwise version of the task serves 
+%as an important precursor to the general problem
+%of clustering web endpoints into coreferent sets.
+
+%In this work we treat any valid web URI as an end-point that can be used to disambiguate an entity.
+
+%For mapping entities in given text to web URI end-points (web KB), we must first infer its existence on the web. We refer to this task as Knowledge Base %Discovery (KBD). For every entity endpoint we may recover thousands of entity mentions via inlinks. While the effectiveness of inlink-driven entity disambiguation %is known for a single KB setting, this can be extended to leverage inlinks across a collection of automatically discovered web KBs. We address the problem of %pair-wise URI classification based entity disambiguation with  distant supervision, by leveraging bootstrapped positive examples using web search and unlabeled %data.  We empirically evaluate our proposed approach using SemEval-2007 WePS and ALTA-2016 shared task datasets.
+
+\end{abstract}
+
+
+%
+% The code below should be generated by the tool at
+% http://dl.acm.org/ccs.cfm
+% Please copy and paste the code instead of the example below. 
+%
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+  <concept_id>10010520.10010553.10010562</concept_id>
+  <concept_desc>Computer systems organization~Embedded systems</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10010520.10010575.10010755</concept_id>
+  <concept_desc>Computer systems organization~Redundancy</concept_desc>
+  <concept_significance>300</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10010520.10010553.10010554</concept_id>
+  <concept_desc>Computer systems organization~Robotics</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10003033.10003083.10003095</concept_id>
+  <concept_desc>Networks~Network reliability</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+</ccs2012>  
+\end{CCSXML}
+
+\ccsdesc[500]{Computer systems organization~Embedded systems}
+\ccsdesc[300]{Computer systems organization~Redundancy}
+\ccsdesc{Computer systems organization~Robotics}
+\ccsdesc[100]{Networks~Network reliability}
+
+
+%
+% End generated code
+%
+
+%
+%  Use this command to print the description
+%
+%\printccsdesc
+
+% We no longer use \terms command
+%\terms{Theory}
+
+\keywords{Webpage Coreference; End-point Disambiguation; Distant Supervision; PU Learning; Semi-supervised Learning}
+
+\section{Introduction}
+
+%resolves textual mentions to the correct node in a knowledge base (KB). Linking 
+%For example, the URL \url{en.wikipedia.org/wiki/Barack_Obama} may be used in reference to former US president Barack Obama. Inlinks to this page are unlikely to refer to some other entity, so we consider this a disambiguating endpoint.
+
+Entity endpoints are URLs which reliably disambiguate named entity mentions on the web\cite{chisholm2016akbc}. Target entity can be a person, organization, location, event or concept. Entity linking systems typically rely on semantic resources such as Wikipedia, DBPedia to be used as end-points. Though they provide a rich context for entities, these sources do not achieve sufficient recall for many domains. In addition to traditional sources, fortunately many other end-points exist for an entity on the web. For instance,  social sources (e.g. facebook.com/*), news aggregation endpoints (e.g. \url{nytimes.com/topic/person/*}) and organisation directories (e.g. \url{gtlaw.com/People/*}) present largely untapped  sources of valuable entity information. Each source can be treated as a knowledge base (KB) containing entity related unstructured data (webpages). Webpage instances are identified using URL end-points. To build on the automatic approaches for discovering web KBs \cite{chisholm2016akbc}, we focus on the subsequent challenge of end-points reconciliation across KBs. Specifically, similar to ALTA 2016 shared task\footnote{http://alta.asn.au/events/sharedtask2016/description.html}, given two candidate endpoint URLs, the task is to determine whether they refer to the same underlying entity. This can be seen as a precursor to grouping web endpoints into coreferent sets. Web person search (WePS) is a closely related unsupervised task. However, WePS focuses on clustering entity mention pages instead of entity endpoint pages, i.e., the pages can have content related to multiple entities.
+%, where the overall goal is also to cluster web pages
+%Similar to ALTA 2016 shared task\footnote{http://alta.asn.au/events/sharedtask2016/description.html}, we address the problem of Cross-KB coreference resolution. 
+
+%Web links can produce models nearly as accurate as those built from richly structured KBs .
+%
+%
+%While Wikipedia has been used extensively for automated entity recognition and disambiguation, many other endpoints may exist for an entity on the web. For example, \url{nytimes.com/topic/person/barack-obama} and \url{twitter.com/BarackObama} may be used equivalently. This style of systematic entity indexing is characteristic
+%of social sources (e.g. facebook.com/* ), news aggregation endpoints (e.g. \url{nytimes.com/topic/person/*} ) and organisation directories (e.g. \url{gtlaw.com/People/*} ). These resources present a valuable and largely untapped source of entity information, both in the content they host and semantic resources that may be extracted from inbound links.
+%
+%Entity linking (EL) systems typically rely on semantic resources such as Wikipedia, DBPedia to be used as end-points. Though they provide a rich context for entities, these sources do not achieve sufficient recall for all the domains and entities. On the other hand, domain centered sources such as DBLP, IMDb or MusicBrainz would have the depth in coverage for a target domain only. 
+%%It is understandable that a near complete solution would depend on merging resources from multiple knowledge bases (KBs). 
+%%But an explicit reconciliation of distinct entity sets and heterogeneous sources' schema is a challenging problem in itself \cite{chisholm2016akbc}. 
+% We consider the sub-task of KBD on web which requires URI disambiguation based on in-links for entity linking. For example, we may observe that inlinks to \url{en.wikipedia.org/wiki/Barack_Obama} are typically mentions of the entity Barack Obama. Inlink based disambiguation can be handled as a pair-wise URI classification problem. URI Pairs are classified as positive if they refer to the same entity and negative otherwise. 
+
+
+% (b) TREC relevance feedback track\footnote{http://trec.nist.gov/data/relevance.feedback.html} had tasks related to relevance classification for a set of 
+% documents given a query. We can treat them as similar problems when solved as pair-wise binary document classification. 
+
+
+
+% This solution is motivated by \cite{hachenbergfinding}, where relation labels from KB are used as queries. Here we use named entities from webpage content as % context keywords to query.  In \cite{hachenbergfinding}, the reverse task was addressed, to map entities in a KB to web URL end-points. 
+% This also helps in building a weakly supervised model for tuning parameters in WePS systems.
+% To ease the constraint of requiring annotated data for this task, as done in state-of-art approaches \cite{chisholm2015entity}, we propose to leverage web-search-based distant supervision for acquiring labels automatically. 
+% 
+Rather than building a completely unsupervised model \cite{chisholm2016akbc, delgado2014data, nuray2009exploiting} or a fully supervised model as in the ALTA shared task, we propose an approach to obtain web-search-based distantly supervised positive examples and employ a positive and unlabeled (PU) learning algorithm \cite{Elkan:2008:LCO:1401890.1401920, liu2002partially}. The intuition is that, if web-search results with target entity name and context keyword from URL$_{a}$ as a query, retrieve  URL$_{b}$ in the top search results, then both URLs are more likely to refer to the same entity. But if the top results do not include URL$_{b}$, then it may not rule out the possibility completely for the pair to refer to the same entity. E.g., though Wikipedia (W1) and biography.com (B1) pages refer to the singer George Clinton, web search for query `George Clinton' AND `P-Funk', where context keyword `P-Funk' is extracted from \url{https://en.wikipedia.org/wiki/George_Clinton_(musician)} (W1), does not get \url{www.biography.com/people/george-clinton-537674} (B1) as one of the top pages. 
+%Analogous to \cite{hachenbergfinding}, we use web search for URL pair classification.
+
+\section{Proposed Approach}
+% We assume to have a web URL end-points KB built using automatic approaches like  \cite{chisholm2016akbc}. From such KB, given a training dataset $D$ with pairs of web URLs, our objective is to learn a pair-wise URL classifier. For a URL pair $U_{1}$ and $U_{2}$, we learn a model \begin{small} $\quad f(\phi(U_{1}, U_{2})) \to y$ \end{small} where the target $y \in \{0,1\}$ denotes whether the URL pair refers to the same entity ($y=1$) or not ($y=0$).  $\phi$ is the feature map which is used to generate pair-wise URL document features, which is denoted as x. Initially all the pairs are unlabeled $D_{u}$=$D$, positive and negative labeled sets are empty $D_{p}, D_{n}$ = $\emptyset$.
+
+ We assume to have web URL end-point KBs built using automatic approaches \cite{chisholm2016akbc}. We refer to web URL end-points as URL henceforth. From such KBs, given a training dataset $D$ with URL pairs from different KBs that share the same entity name, our objective is to learn a pair-wise URL classifier. For a URL pair $U_{1}$ and $U_{2}$, we learn a model \begin{small} $\quad f(x) \to y$ \end{small} where the target $y \in \{0,1\}$ denotes whether the URL pair refers to the same entity ($y=1$) or not ($y=0$).  $x$ is the feature map to generate pair-wise URL document features ($x=\phi(U_{1}, U_{2}$)). Initially all the pairs are unlabeled $D_{u}$=$D$, positive and negative labeled sets are empty $D_{p}, D_{n}$ = $\emptyset$.
+
+%Since acquiring labeled data for this task would require huge resources,  we propose to leverage web search results for providing distant supervision labels. 
+\textbf{2.1. Distant Supervision :} We construct web search query for distant supervision as follows:
+%\begin{itemize}
+%\item 
+\textbf{Q1:} Using target entity name and context information from $U_{1}$. Context information includes person name (PER) and organization (ORG) named entities provided by Stanford NER toolkit.  Similar to \cite{nuray2009exploiting}, we consider at most 8 context entities from the start of document for querying. The intuition is that context entities in the $title$ and document beginning are more likely to be relevant to the target entity. 
+%\item 
+\textbf{Q2:} Similar to above, we use target entity name and context information from  $U_{2}$ for querying.
+%\end{itemize}
+
+After querying on DuckDuckGo\footnote{www.duckduckgo.com} search engine with the target entity name and each context keyword from $U_{1}$ (at most 8 queries), we check if $U_{2}$ is present among top $K$ search results (we use $K$ = 30). If it is present, then we refer to it as a `hit'. We also compute results with \textbf{Q2} (second set of queries, at most 8 again). We evaluate a simple setup where we assign distant label $\hat{y_{ij}}=1$ for $URL_{i}$ and $URL_{j}$ if there was at least one hit. These positive instances are added to $D_{p}$ and removed from $D_{u}$.
+
+%If H is the total number of hits, distant label  $\hat{y_{ij}}$ for $URL_{i}$ and $URL_{j}$ is given as $\hat{y_{ij}} = 1, \text{if } H \ge \theta $. We use a very simple setup of $\theta$=1 in our experiments. 
+%\begin{small}
+%\[
+%    \hat{y_{ij}} = 
+%\begin{cases}
+%    1,             &\text{if } H \ge \theta \\
+%    0,              & \text{otherwise}
+%\end{cases}
+%\]
+%\end{small}
+
+%a binary classifier(with $D_{p}$ and $D_{u}$ as two classes)
+
+% We propose a variant of \cite{Elkan:2008:LCO:1401890.1401920} to handle this setup.
+% \begin{small} $\frac{1}{|D_{pc}|}\sum_{i:D_{pc}} g(x_{i})$ \end{small} for a randomly chosen subset of positively labeled examples $D_{pc}$, 
+\textbf{2.2. Labeling Unlabeled Pairs:} Since the proportion of positive examples may not be large in all cases, we recover positive and negative examples from $D_{u}$.   The steps involved are as given below
+
+\begin{small}
+\begin{itemize}
+
+\item Step 1: Choose `N' samples randomly from $D_{p}$, which is denoted as $S_{p}$. Remove those points from $D_{p}$.
+\item Step 2: Build a binary classifier $\theta$ with $D_{p}$ and $D_{u}$ as two classes ($D_{p}$ vs $D_{u}$).  We use SVM binary classifier with linear kernel.
+\item Step 3: Compute average (probabilistic) score of instances in $S_{p}$ given by $\theta$ (using Platt scaling), $\mu_{p}$ = $\frac{1}{|S_{p}|}\sum_{i:S_{p}} p(x_{i}=1)$. We use it as the threshold for labeling data-points in $D_{u}$, which gives $D^{l}_{u}$.  If $p(x_{u}=1) > \mu_{p}$ then label it as positive, negative otherwise.
+
+\end{itemize}
+\end{small}
+
+We see this as a variant approach built on \cite{Elkan:2008:LCO:1401890.1401920} and \cite{liu2002partially}. In \cite{liu2002partially} a threshold is derived from $S_{p}$ to only recover negative examples from $D_{u}$. In \cite{Elkan:2008:LCO:1401890.1401920} uses average decision score of positive examples given by $\theta$ to scale the threshold for test data finally. Above mentioned step-wise procedure gives a dataset with positive and negative examples ($D_{p} \cup D^l_{u}$) that can be used with any standard binary classifier. We use SVM with linear kernel and we refer to it as \textbf{DP-SVM} in Table 1, since it uses propagated distant labels.
+
+%The updated threshold for classifiying examples in $D_{u}$ is given below
+%We use 
+%
+%We use one-class SVM to model positive examples obtained from distant supervision. We can write the distance to hyperplane using one-class SVM as
+%\begin{small}
+%\begin{align}
+%g(x) & = \sum_{i:S_{p}} \alpha_i K(x,x_i) - \rho
+%\end{align}
+%\end{small}
+%$S_{p}$ is the set of support vectors obtained using positively labeled examples. K is any kernel of choice and $\rho$ is the offset. The proportion of positive examples may not be large in all cases. Rather than using average decision value of positive examples obtained using a binary classifier(with $D_{p}$ and $D_{u}$ as two classes) to scale the test data finally as in \cite{Elkan:2008:LCO:1401890.1401920}, we use \begin{small} $\frac{1}{|D_{pc}|}\sum_{i:D_{pc}} g(x_{i})$ \end{small} for a randomly chosen subset of positively labeled examples $D_{pc}$, referred as $\mu_{p}$ to provide a new conservative margin for labeling data-points in $D_{u}$. The updated threshold for classifying examples in $D_{u}$ is given below
+%
+%%We treat the SVM score of a data-point in $D_{u}$ using the decision function above as its closeness to the region of positive examples, then we consider %the robust measure $\frac{1}{|D_{p}|}\sum_{i:D_{p}} g(x_{i})$, referred as $\mu_{p}$, as the threshold for classifying examples in $D_{u}$ as positive or %negative. 
+%\begin{small}
+%\begin{align}
+%f(x) & = g(x) - \mu_{p}, \forall x \in D_{u} 
+%\end{align}
+%
+%\[
+%    \hat{y(x)} = 
+%\begin{cases}
+%    1,             &\text{if } f(x) > 0    \\
+%    0,              & \text{otherwise}
+%\end{cases}
+%\]
+%\end{small}
+%
+%The objective of this step is to classify the unlabeled/ambiguous examples ($D_{u}$) as positive or negative based on its distance to the region of positive examples ($D_{p}$), the labeled set is denoted as $D^l_{u}$. With this we would have a dataset with positive and negative examples ($D_{p} \cup D^l_{u}$) which can be used with any standard binary classifier.
+%
+\section{Experiments}
+We use SemEval-2007 WePS development\footnote{http://nlp.uned.es/weps/weps-1} set and ALTA-2016 shared task datasets. We constructed a balanced 1000 URL pair dataset from webpages belonging to 49 persons. We only included pairs sharing the same person name from the webpages that still exist. Additionally, we considered end-point pages only (filtered using features from \cite{chisholm2016akbc}). If the pair refers to same entity, then it is a positive example, negative otherwise. We used a random split of 70-30 for training and testing. The ALTA dataset is a balanced set which contains 400 pairs of URLs that can refer to any entity -- person, organization, location, etc. We used 300 pairs for training and retained the private test set of 100 pairs from competition for testing. Note that we use manual annotations provided in the dataset only for testing.
+
+We extract standard set of features proposed by best performing systems in the respective competitions. Briefly, the 8 features created on WePS dataset include: unigram based cosine similarity, n-gram based cosine similarity, named entities phrase based cosine similarity (obtained using Stanford NER), title unigram Jaccard Coefficient score, URL character 4-gram Jaccard Coefficient, webpage contents' vector dot product similarity obtained using average Word2Vec representation, document length difference and URL path length difference. We extract the same set of features on ALTA dataset, in addition we also compute semantic similarity\footnote{https://dandelion.eu/semantic-text/text-similarity-demo/} and machine translation metrics\footnote{https://github.com/jhclark/multeval} (BLEU, METEOR and TER) between pairs of Bing search snippet text that was provided in the dataset (in total 12 features).
+%one-class SVM (OSVM) using $D_{p}$ only
+
+Using distant supervision (section 2.1) we got around 10\% positive examples on WePS dataset and around 25\% on ALTA dataset. With $D_{p}$ as positive and $D_{u}$ as negative examples, we use biased SVM (BSVM) which has different costs for positive and negative classes as a simple baseline. PU Learning baselines with $D_{p}$ and $D_{u}$ include: Spy-SVM with recommended parameters in\cite{liu2002partially} and SPUL \cite{Elkan:2008:LCO:1401890.1401920}. All SVM based models use a linear kernel. We also evaluate hierarchical clustering based unsupervised approach (referred to as HC) which is shown to perform well for WePS task \cite{delgado2014data}. We set number of clusters as two and use brute-force technique that minimizes overall error to assign clusters to classes.
+% We consider binary classification with $D_{p}$ as positive and $D_{u}$ as negative examples as a simple baseline. We use SVM and biased-SVM (BSVM) which has different costs for positive and negative classes for as binary classification. 
+% On WePS dataset, using distant supervision, we got around 10\% positive examples, with a precision of $\sim80\%$.  On ALTA dataset, we obtained aroud 25\% %positive examples, with a precision of $\sim71\%$. Lesser recall of positive examples for WePS dataset is expected since the dataset consists of old URLs, which %may not be popular currently. Similarly, lesser precision of positive examples for ALTA dataset is due to social media URLs such as Twitter. 
+%We compute average F-measure on test-set (Table 1) to compare the proposed setup with baseline approaches. 
+Parameters for SVM (C) and biased-SVM (C and class weights) are chosen by cross-validation. For our proposed method (DP-SVM), that uses labels from methods given in Section 2.1 and 2.2, we provide average scores across five runs with five random positive examples as $S_{p}$. We compute average F-measure on test-set and the results are given in Table 1, best scores are given in bold. Distant supervision based model which uses labels from procedure given in Section 2.1 (BSVM) performs better than unsupervised approach (HC). SPUL is sensitive to ratio of positive examples ($D_{p}$ vs $D_{u}$), it performs better on ALTA dataset compared to WePS dataset. Overall, our proposed approach (\textbf{DP-SVM}) performs better than other competing methods. We evaluated the upper bound performance of supervised SVM model built with manually annotated labels. The average F-measure was around 5\% greater than our proposed approach on both the datasets.
+
+%Since WePS dataset has rich features from webpage content, the performance improvement on it is higher using the proposed approach and Spy-SVM. ALTA has many URLs from social sources such as Twitter, which may not always have rich text features. 
+
+%, though using a non-linear classifier finally could provide better performance, here we show only the relative gain of using distant supervision in conjunction with PU Learning
+%
+
+%%Supervised SVM model built on true labels of WePS gives a performance of 0.646 on test data, similarly supervised model on ALTA dataset provides a %performance of 0.303, from competition it is 0.658.
+%
+%\begin{small}
+%\begin{center}
+%\small \textbf{Table1: Micro-Average F-measure}
+% \begin{tabular}{ | l|c|c|c|c|c|c|c| }
+%    \hline
+%Dataset &SVM & OSVM & Spy-SVM & BSVM & SPUL & $SVM^{P}$ & $BSVM^{P}$ \\ \hline
+%  WePS & 0.298 & 0.454 & 0.362 & 0.452 & 0.364 & 0.504 & 0.545 \\ \hline
+%    ALTA & 0.322 & 0.505 & 0.406 & 0.458 & 0.552 & 0.570 & 0.577 \\ \hline
+%  \end{tabular}
+%\end{center}
+%\end{small}
+
+%\begin{small}
+%\begin{center}
+%\small \textbf{Table1: Micro-Average F-measure}
+% \begin{tabular}{ | l|c|c|c|c|c|c| }
+%    \hline
+%Dataset &Spy-SVM & OSVM & BSVM & SPUL  & $BSVM^{P}$ & HC \\ \hline
+%  WePS & 0.362 & 0.454 & 0.452 &  0.364  & 0.539  & 0.475\\ \hline
+%    ALTA & 0.406 & 0.505 & 0.458 & 0.552  & 0.622 & 0.479\\ \hline
+%  \end{tabular}
+%\end{center}
+%\end{small}
+
+%
+%\begin{small}
+%\begin{center}
+%\small \textbf{Table1: Average F-measure}
+% \begin{tabular}{ | l|c|c|c|c|c|c|c|}
+%    \hline
+%Dataset & SVM & BSVM &Spy-SVM& SPUL  & HC & D-SVM  \\ \hline
+%  WePS &  0.298 & 0.536 &  0.631 & 0.364  &  0.408 & \textbf{0.635}\\ \hline
+%    ALTA & 0.322  & 0.487 &0.504 & 0.552  &  0.481 & \textbf{0.607}\\ \hline
+%  \end{tabular}
+%\end{center}
+%\end{small}
+
+
+
+%\begin{small}
+%\begin{center}
+%\small \textbf{Table1: Micro-Average F-measure}
+% \begin{tabular}{ | l|c|c|c|c|c|c|c|}
+%    \hline
+%Dataset & SVM & BSVM &Spy-SVM& SPUL  & HC & DP-SVM  \\ \hline
+%  WePS &  0.467 & 0.472 &  0.63 & 0.516  &  0.408 & \textbf{0.653}\\ \hline
+%    ALTA & 0.49 & 0.5 &0.54 & 0.587  &  0.481 & \textbf{0.608}\\ \hline
+%  \end{tabular}
+%\end{center}
+%\end{small}
+
+
+\begin{small}
+\begin{center}
+\small \textbf{Table1: Micro-Average F-measure}
+ \begin{tabular}{ | l|c|c|c|c|c|c|}
+    \hline
+Dataset &  BSVM &Spy-SVM& SPUL  & HC & DP-SVM  \\ \hline
+  WePS &   0.472 &  0.63 & 0.516  &  0.408 & \textbf{0.653}\\ \hline
+    ALTA &  0.5 &0.54 & 0.587  &  0.481 & \textbf{0.608}\\ \hline
+  \end{tabular}
+\end{center}
+\end{small}
+
+
+%Additionally, we also evaluate the proposed approach against commonly used K-Means in WePS systems \cite{delgado2014data}. We compute accuracy of after assigning the clusters to positive and negative classes. 
+%
+%\begin{small}
+%\begin{center}
+%\begin{table}[!htp]
+%  \begin{tabular}{ |l|c|r|}
+%    \hline
+%Dataset &HC & Proposed \\ \hline
+%  WePS & 50.3\% & 54.5\% \\ \hline
+%    ALTA & 54\% & 60\%\\ \hline
+%  \end{tabular}
+%\caption{Accuracy}
+%\end{table}
+%\end{center}
+%\end{small}
+
+
+\section{Conclusions}
+We have evaluated two key contributions: (a) use of distant supervision for web URL endpoints coreference classification task (b) effectiveness of using PU Learning for this setup. To the best of our knowledge this is the first attempt to leverage distant supervision in conjunction with PU Learning. 
+%for labeling positive examples, and to employ PU Learning to build a model. 
+\bibliographystyle{abbrv}
+\bibliography{WWW}  
+\end{document}

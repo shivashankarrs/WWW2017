@@ -1,0 +1,102 @@
+\begin{thebibliography}{10}
+
+\bibitem{artiles2007semeval}
+J.~Artiles, J.~Gonzalo, and S.~Sekine.
+\newblock The semeval-2007 weps evaluation: Establishing a benchmark for the
+  web people search task.
+\newblock In {\em Proceedings of the 4th International Workshop on Semantic
+  Evaluations}, pages 64--69. Association for Computational Linguistics, 2007.
+
+\bibitem{bagga1998entity}
+A.~Bagga and B.~Baldwin.
+\newblock Entity-based cross-document coreferencing using the vector space
+  model.
+\newblock In {\em Proceedings of the 17th international conference on
+  Computational linguistics-Volume 1}, pages 79--85. Association for
+  Computational Linguistics, 1998.
+
+\bibitem{bing2016distant}
+L.~Bing, M.~Ling, R.~C. Wang, and W.~W. Cohen.
+\newblock Distant ie by bootstrapping using lists and document structure.
+\newblock {\em arXiv preprint arXiv:1601.00620}, 2016.
+
+\bibitem{chisholm2015entity}
+A.~Chisholm and B.~Hachey.
+\newblock Entity disambiguation with web links.
+\newblock {\em Transactions of the Association for Computational Linguistics},
+  3:145--156, 2015.
+
+\bibitem{chisholm2016akbc}
+A.~Chisholm, W.~Radford, and B.~Hachey.
+\newblock Discovering entity knowledge bases on the web.
+\newblock In {\em Proceedings of the 5th Workshop on Automated Knowledge Base
+  Construction}, pages 7--11, 2016.
+
+\bibitem{cucerzan2007large}
+S.~Cucerzan.
+\newblock Large-scale named entity disambiguation based on wikipedia data.
+\newblock In {\em EMNLP-CoNLL}, volume~7, pages 708--716, 2007.
+
+\bibitem{hachenbergfinding}
+C.~Hachenberg and T.~Gottron.
+\newblock Finding good urls: Aligning entities in knowledge bases with public
+  web document representations.
+\newblock pages 17--28, 2012.
+
+\bibitem{hearst1992automatic}
+M.~A. Hearst.
+\newblock Automatic acquisition of hyponyms from large text corpora.
+\newblock In {\em Proceedings of the 14th conference on Computational
+  linguistics-Volume 2}, pages 539--545. Association for Computational
+  Linguistics, 1992.
+
+\bibitem{heng2011overview}
+J.~Heng, R.~Grishman, and H.~Dang.
+\newblock Overview of the tac2011 knowledge base population track.
+\newblock In {\em Proceedings of the Fourth Text Analysis Conference (TAC
+  2011)}, 2011.
+
+\bibitem{mcnamee2009overview}
+P.~McNamee and H.~T. Dang.
+\newblock Overview of the tac 2009 knowledge base population track.
+\newblock In {\em Text Analysis Conference (TAC)}, volume~17, pages 111--113,
+  2009.
+
+\bibitem{milne2008learning}
+D.~Milne and I.~H. Witten.
+\newblock Learning to link with wikipedia.
+\newblock In {\em Proceedings of the 17th ACM conference on Information and
+  knowledge management}, pages 509--518. ACM, 2008.
+
+\bibitem{nuray2009exploiting}
+R.~Nuray-Turan, Z.~Chen, D.~V. Kalashnikov, and S.~Mehrotra.
+\newblock Exploiting web querying for web people search in weps2.
+\newblock In {\em Web People Search Evaluation Workshop, WWW}, 2009.
+
+\bibitem{singh2011large}
+S.~Singh, A.~Subramanya, F.~Pereira, and A.~McCallum.
+\newblock Large-scale cross-document coreference using distributed inference
+  and hierarchical models.
+\newblock In {\em Proceedings of the 49th Annual Meeting of the Association for
+  Computational Linguistics: Human Language Technologies-Volume 1}, pages
+  793--803. Association for Computational Linguistics, 2011.
+
+\bibitem{wang2007language}
+R.~C. Wang and W.~W. Cohen.
+\newblock Language-independent set expansion of named entities using the web.
+\newblock In {\em Seventh IEEE International Conference on Data Mining (ICDM
+  2007)}, pages 342--350. IEEE, 2007.
+
+\bibitem{yang2010reconstruct}
+Q.~Yang, P.~Jiang, C.~Zhang, and Z.~Niu.
+\newblock Reconstruct logical hierarchical sitemap for related entity finding.
+\newblock Technical report, DTIC Document, 2010.
+
+\bibitem{zheng2012entity}
+Z.~Zheng, X.~Si, F.~Li, E.~Y. Chang, and X.~Zhu.
+\newblock Entity disambiguation with freebase.
+\newblock In {\em Proceedings of the The 2012 IEEE/WIC/ACM International Joint
+  Conferences on Web Intelligence and Intelligent Agent Technology-Volume 01},
+  pages 82--89. IEEE Computer Society, 2012.
+
+\end{thebibliography}
