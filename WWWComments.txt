@@ -1,0 +1,89 @@
+----------------------- REVIEW 1 ---------------------
+PAPER: 56
+TITLE: Pairwise Webpage Coreference Classification using Distant Supervision
+AUTHORS: Shivashankar Subramanian, Trevor Cohn, Timothy Baldwin and Julian Brooke
+
+Audience: 3
+Overall score: 2
+
+----------- Strength -----------
+this seems like a useful thing to do - very amused by the (rather good) funky example
+
+----------- Weakness -----------
+looks good to me
+
+----------- Summary and review comments -----------
+inferring related links! good approach pairwise
+
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 56
+TITLE: Pairwise Webpage Coreference Classification using Distant Supervision
+AUTHORS: Shivashankar Subramanian, Trevor Cohn, Timothy Baldwin and Julian Brooke
+
+Audience: 2
+Overall score: 2
+
+----------- Strength -----------
+The paper's main contribution is a method for annotating training data
+    using DuckDuckGo searches.  The method was clever, and as far as I can
+    tell, novel.
+
+----------- Weakness -----------
+The paper was kind of hard to read.  It felt like a biology paper, where
+    they try to cram as much methodological details in as possible without
+    paying attention to how easy the paper is to understand.
+
+----------- Summary and review comments -----------
+This paper trains a classifier to tell if two URLs are about the same
+    person (or thing).  The classifier uses a standard set of features, but
+    they propose a new approach for getting better training data.  The idea is
+    to google context information from one URL, and if the second URL appears
+    in the search results, that pair of URLs is a positive training example.
+    The resulting classifier outperforms existing approaches to the same
+    problem.
+
+    I think it is a good idea and the paper should be accepted.
+
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 56
+TITLE: Pairwise Webpage Coreference Classification using Distant Supervision
+AUTHORS: Shivashankar Subramanian, Trevor Cohn, Timothy Baldwin and Julian Brooke
+
+Audience: 3
+Overall score: 1
+
+----------- Strength -----------
+This is the first attempt that exploits distant supervision for endpoint classification.
+
+----------- Weakness -----------
+Supervised methods, which are considered strong baselines, are not included in the comparative methods.
+
+----------- Summary and review comments -----------
+This paper investigates using distant supervision for endpoint classification. It makes use of a search engine to find ULR pairs referring to the same entity, and then they are used as positive labeled data. A positive and unlabeled (PU) learning algorithm was employed for learning from only those positive data. The experiment demonstrated that PU learning algorithms outperform the unsupervised baseline.
+
+The idea of exploiting distant supervision is overall reasonalbe, and the experimental results represents its effectiveness. I am, however, curious how the proposed approach compares with purely supervised methods, which learn classifiers from manually annotated data.
+
+
+----------------------- REVIEW 4 ---------------------
+PAPER: 56
+TITLE: Pairwise Webpage Coreference Classification using Distant Supervision
+AUTHORS: Shivashankar Subramanian, Trevor Cohn, Timothy Baldwin and Julian Brooke
+
+Audience: 3
+Overall score: 1
+
+----------- Strength -----------
+Using standard tools (i.e. not too much innovation) introduce a method that bridges supervised and unsupervised learning models for the problem of webpage coreference classification. The experimental results were good although certain technical explanations are missing.
+
+----------- Weakness -----------
+The explanation of why 2.2 works isn't adequate. In a sense, it only repeats the steps of the algorithm.
+
+The details of the experiment are substandard. It is not clear how the training and the testing was done. How did you choose these tests? Unfortunately, without such information it would be very hard for someone to repeat the empirical study or improve it.
+
+The use of English can be significantly improved.
+At places appears to be quite bizarre.
+
+----------- Summary and review comments -----------
+This could have been a good poster. However, it lacks significant elements necessary to understand the experimental setup. Furthermore, the authors claim that they used SVM and BSVM. These methods work on quite modest dataset sizes. But in any case the authors do not explain how did they choose training and testing datasets.
