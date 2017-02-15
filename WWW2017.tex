@@ -45,15 +45,27 @@
 %
 % For tracking purposes - this is V2.0 - May 2012
 
-\documentclass{sig-alternate-05-2015}
+\documentclass{sig-alternate-2013}
 \usepackage{floatrow}
+\usepackage{url}
 \floatsetup[table]{capposition=top}
 
+
+\permission{\copyright 2017 International World Wide Web Conference Committee \\ (IW3C2), published under Creative Commons CC BY 4.0 License.}
+\conferenceinfo{WWW'17 Companion,}{April 3--7, 2017, Perth, Australia.}
+\copyrightetc{ACM \the\acmcopyr}
+\crdata{978-1-4503-4914-7/17/04. \\
+\includegraphics{cc.png}
+% cc.png is available in step b above 
+}
+
+\clubpenalty=10000
+\widowpenalty=10000
 
 \begin{document}
 
 % Copyright
-\setcopyright{acmcopyright}
+%\setcopyright{acmcopyright}
 %\setcopyright{acmlicensed}
 %\setcopyright{rightsretained}
 %\setcopyright{usgov}
@@ -173,35 +185,35 @@ Multiple URL endpoints exist for an entity on the web. Hence we address the fund
 % http://dl.acm.org/ccs.cfm
 % Please copy and paste the code instead of the example below. 
 %
-\begin{CCSXML}
-<ccs2012>
- <concept>
-  <concept_id>10010520.10010553.10010562</concept_id>
-  <concept_desc>Computer systems organization~Embedded systems</concept_desc>
-  <concept_significance>500</concept_significance>
- </concept>
- <concept>
-  <concept_id>10010520.10010575.10010755</concept_id>
-  <concept_desc>Computer systems organization~Redundancy</concept_desc>
-  <concept_significance>300</concept_significance>
- </concept>
- <concept>
-  <concept_id>10010520.10010553.10010554</concept_id>
-  <concept_desc>Computer systems organization~Robotics</concept_desc>
-  <concept_significance>100</concept_significance>
- </concept>
- <concept>
-  <concept_id>10003033.10003083.10003095</concept_id>
-  <concept_desc>Networks~Network reliability</concept_desc>
-  <concept_significance>100</concept_significance>
- </concept>
-</ccs2012>  
-\end{CCSXML}
+%\begin{CCSXML}
+%<ccs2012>
+% <concept>
+%  <concept_id>10010520.10010553.10010562</concept_id>
+%  <concept_desc>Computer systems organization~Embedded systems</concept_desc>
+%  <concept_significance>500</concept_significance>
+% </concept>
+% <concept>
+%  <concept_id>10010520.10010575.10010755</concept_id>
+%  <concept_desc>Computer systems organization~Redundancy</concept_desc>
+%  <concept_significance>300</concept_significance>
+% </concept>
+% <concept>
+%  <concept_id>10010520.10010553.10010554</concept_id>
+%  <concept_desc>Computer systems organization~Robotics</concept_desc>
+%  <concept_significance>100</concept_significance>
+% </concept>
+% <concept>
+%  <concept_id>10003033.10003083.10003095</concept_id>
+%  <concept_desc>Networks~Network reliability</concept_desc>
+%  <concept_significance>100</concept_significance>
+% </concept>
+%</ccs2012>  
+%\end{CCSXML}
 
-\ccsdesc[500]{Computer systems organization~Embedded systems}
-\ccsdesc[300]{Computer systems organization~Redundancy}
-\ccsdesc{Computer systems organization~Robotics}
-\ccsdesc[100]{Networks~Network reliability}
+%\ccsdesc[500]{Computer systems organization~Embedded systems}
+%\ccsdesc[300]{Computer systems organization~Redundancy}
+%\ccsdesc{Computer systems organization~Robotics}
+%\ccsdesc[100]{Networks~Network reliability}
 
 
 %
@@ -406,6 +418,18 @@ Dataset &  BSVM &Spy-SVM& SPUL  & HC & DP-SVM  \\ \hline
   \end{tabular}
 \end{center}
 \end{small}
+
+%\begin{small}
+%\begin{center}
+%\small \textbf{Table1: Micro-Average F-measure}
+% \begin{tabular}{ | l|c|c|c|c|c|c|}
+%    \hline
+%Dataset &  BSVM &Spy& SPUL  & HC & DP-SVM & Sup \\ \hline
+%  WePS &   0.472 &  0.63 & 0.516  &  0.408 & \textbf{0.653} &  0.408\\ \hline
+%    ALTA &  0.5 &0.54 & 0.587  &  0.481 & \textbf{0.608} &  0.408\\ \hline
+%  \end{tabular}
+%\end{center}
+%\end{small}
 
 
 %Additionally, we also evaluate the proposed approach against commonly used K-Means in WePS systems \cite{delgado2014data}. We compute accuracy of after assigning the clusters to positive and negative classes. 
