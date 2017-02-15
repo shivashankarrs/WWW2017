@@ -45,22 +45,28 @@
 %
 % For tracking purposes - this is V2.0 - May 2012
 
-\documentclass{sig-alternate-2013}
+
+\documentclass[letterpaper]{sig-alternate-2013}
+
 \usepackage{floatrow}
 \usepackage{url}
-\floatsetup[table]{capposition=top}
 
-
-\permission{\copyright 2017 International World Wide Web Conference Committee \\ (IW3C2), published under Creative Commons CC BY 4.0 License.}
-\conferenceinfo{WWW'17 Companion,}{April 3--7, 2017, Perth, Australia.}
+\permission{\copyright 2017 International World Wide Web Conference Committee (IW3C2), 
+published under Creative Commons CC BY 4.0 License.}
+\conferenceinfo{WWW 2017,}{April 3--7, 2017, Perth, Australia.}
 \copyrightetc{ACM \the\acmcopyr}
-\crdata{978-1-4503-4914-7/17/04. \\
+\crdata{978-1-4503-4913-0/17/04. \\
+http://dx.doi.org/10.1145/3038912.3038914 \\
 \includegraphics{cc.png}
-% cc.png is available in step b above 
+%<img src="http://i.creativecommons.org/l/by/4.0/88x31.png" /> 
 }
-
+ 
 \clubpenalty=10000
-\widowpenalty=10000
+\widowpenalty = 10000
+
+\def\sharedaffiliation{%
+\end{tabular}
+\begin{tabular}{c}}
 
 \begin{document}
 
@@ -120,43 +126,72 @@
 % without further effort on your part as the last section in
 % the body of your article BEFORE References or any Appendices.
 
-\numberofauthors{4} %  in this sample file, there are a *total*
-% of EIGHT authors. SIX appear on the 'first-page' (for formatting
-% reasons) and the remaining two appear in the \additionalauthors section.
-%
-\author{
-% You can go ahead and credit any number of authors here,
-% e.g. one 'row of three' or two rows (consisting of one row of three
-% and a second row of one, two or three).
-%
-% The command \alignauthor (no curly braces needed) should
-% precede each author name, affiliation/snail-mail address and
-% e-mail address. Additionally, tag each line of
-% affiliation/address with \affaddr, and tag the
-% e-mail address with \email.
-%
-% 1st. author
-%\alignauthor
-%S. Shivashankar\\
-%       \affaddr{Department of CIS,}\\
-%       \affaddr{University of Melbourne}\\
-%       \small {shivashankar@student.unimelb.edu.au}
+
+%\numberofauthors{4}
+%\author{
+%      \alignauthor S. Shivashankar\\      
+%      \affaddr{Department of CIS,}\\
+%      \affaddr{The University of Melbourne}\\
+%      \small{shivashankar@student.unimelb.edu.au}
+%%
+%      \alignauthor Trevor Cohn\\     
+%      \affaddr{Department of CIS,}\\
+%      \affaddr{The University of Melbourne}\\
+%      \small{t.cohn@unimelb.edu.au}
+%%
+%      \alignauthor Tim Baldwin\\    
+%      \affaddr{Department of CIS,}\\
+%      \affaddr{The University of Melbourne}\\
+%	\small{tb@ldwin.net}\\
+% %
+%\and
+%      \alignauthor Julian Brooke\\    
+%      \affaddr{Department of CIS,}\\
+%      \affaddr{The University of Melbourne}\\
+%\small{julian.brooke@unimelb.edu.au}
+%}
+
+%\numberofauthors{4} %  in this sample file, there are a *total*
+%% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+%% reasons) and the remaining two appear in the \additionalauthors section.
+%%
+%\author{
+%% You can go ahead and credit any number of authors here,
+%% e.g. one 'row of three' or two rows (consisting of one row of three
+%% and a second row of one, two or three).
+%%
+%% The command \alignauthor (no curly braces needed) should
+%% precede each author name, affiliation/snail-mail address and
+%% e-mail address. Additionally, tag each line of
+%% affiliation/address with \affaddr, and tag the
+%% e-mail address with \email.
+%%
+%% 1st. author
+%\alignauthor S. Shivashankar\\
+%%  \affaddr{Department of CIS,}\\
+% %  S\affaddr{University of Melbourne}\\
+%       \email{shivashankar@student.unimelb.edu.au}
 %% 2nd. author
 %\alignauthor
 %Trevor Cohn\\
-%       \affaddr{Department of CIS,}\\
-%       \affaddr{University of Melbourne}\\
+% %   \affaddr{Department of CIS,}\\
+%   %    \affaddr{University of Melbourne}\\
 %	\small {t.cohn@unimelb.edu.au}
 %% 3rd. author
 %\alignauthor Tim Baldwin\\
-%       \affaddr{Department of CIS,}\\
-%       \affaddr{University of Melbourne}\\
+%  %     \affaddr{Department of CIS,}\\
+%   %    \affaddr{University of Melbourne}\\
 %       \small{tb@ldwin.net}
 %\alignauthor Julian Brooke\\
-%       \affaddr{Department of CIS,}\\
-%       \affaddr{University of Melbourne}\\
+%  %     \affaddr{Department of CIS,}\\
+%  %     \affaddr{University of Melbourne}\\
 %       \small{julian.brooke@gmail.com}
-}
+%
+%   \sharedaffiliation
+%      \affaddr{Department of Computing and Information System}  \\
+%      \affaddr{The University of Melbourne}   \\
+%      \affaddr{VIC, Australia}
+%}
 
 %To achieve a good coverage of entities across multiple domains, web URL end-points can be considered as a knowledge base (KB). Since 
 \maketitle
