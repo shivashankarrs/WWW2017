@@ -12,3 +12,8 @@ W.r.t the reviewer comments, key pointers (according to me) are as follows
 2. Language
 3. Experimental settings and results of supervised upper-bound (this part is already included in the paper)
 
+Important files in the folder are:
+
+1. WWW2017.tex (main tex file)
+2. WWWComments.txt (this includes reviewer comments)
+
