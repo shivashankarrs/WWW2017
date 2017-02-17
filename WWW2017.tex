@@ -50,13 +50,17 @@
 
 \usepackage{floatrow}
 \usepackage{url}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{authblk}
+\usepackage[pdfborder={0 0 0}]{hyperref}% For email addresses
 
 \permission{\copyright 2017 International World Wide Web Conference Committee (IW3C2), 
 published under Creative Commons CC BY 4.0 License.}
 \conferenceinfo{WWW 2017,}{April 3--7, 2017, Perth, Australia.}
 \copyrightetc{ACM \the\acmcopyr}
-\crdata{978-1-4503-4913-0/17/04. \\
-http://dx.doi.org/10.1145/3038912.3038914 \\
+\crdata{978-1-4503-4914-7/17/04. \\
+http://dx.doi.org/10.1145/3041021.3054224  \\
 \includegraphics{cc.png}
 %<img src="http://i.creativecommons.org/l/by/4.0/88x31.png" /> 
 }
@@ -64,11 +68,39 @@ http://dx.doi.org/10.1145/3038912.3038914 \\
 \clubpenalty=10000
 \widowpenalty = 10000
 
-\def\sharedaffiliation{%
-\end{tabular}
-\begin{tabular}{c}}
+\def\@maketitle{\newpage
+ \null
+ \setbox\@acmtitlebox\vbox{%
+\baselineskip 20pt
+\vskip 2em                   % Vertical space above title.
+   \begin{center}
+    {\ttlfnt \@title\par}       % Title set in 18pt Helvetica (Arial) bold size.
+    \vskip 1.5em                % Vertical space after title.
+%This should be the subtitle.
+{\subttlfnt \the\subtitletext\par}\vskip 1.25em%\fi
+    {\baselineskip 16pt\aufnt   % each author set in \12 pt Arial, in a
+     \lineskip .5em             % tabular environment
+     \begin{tabular}[t]{c}\@author
+     \end{tabular}\par}
+    \vskip 1.5em               % Vertical space after author.
+   \end{center}}
+ \dimen0=\ht\@acmtitlebox
+% \advance\dimen0 by -12.75pc\relax % comment by Marco Daniel
+ \unvbox\@acmtitlebox
+ \ifdim\dimen0<0.0pt\relax\vskip-\dimen0\fi}
 
+
+\title{Pairwise Webpage Coreference Classification using Distant Supervision\vspace{-0.7cm}}
+
+\author[1*]{\Large{S. Shivashankar}}
+\author[2*]{\Large{Tim Baldwin}}
+\author[3*]{\Large{Julian Brooke}}
+\author[4*]{\Large{Trevor Cohn}\vspace{-0.3cm}}
+\affil[*]{\large Department of CIS, \   The University of Melbourne, \   VIC, Australia}
+\affil[1]{\small \url{shivashankar@student.unimelb.edu.au}} 
+\affil[2,3,4] {\url{(tbaldwin, julian.brooke, t.cohn)@unimelb.edu.au}}
 \begin{document}
+
 
 % Copyright
 %\setcopyright{acmcopyright}
@@ -100,7 +132,7 @@ http://dx.doi.org/10.1145/3038912.3038914 \\
 
 %\title{Pairwise Web URL classification for Cross-KB Coreference Resolution using Distant Supervision}
 %\title{Pairwise Web URL classification for Cross-KB Entity Linking using Distant Supervision}
-\title{Pairwise Webpage Coreference Classification using Distant Supervision}
+%\title{Pairwise Webpage Coreference Classification using Distant Supervision}
 %
 % You need the command \numberofauthors to handle the 'placement
 % and alignment' of the authors beneath the title.
@@ -134,21 +166,20 @@ http://dx.doi.org/10.1145/3038912.3038914 \\
 %      \affaddr{The University of Melbourne}\\
 %      \small{shivashankar@student.unimelb.edu.au}
 %%
-%      \alignauthor Trevor Cohn\\     
-%      \affaddr{Department of CIS,}\\
-%      \affaddr{The University of Melbourne}\\
-%      \small{t.cohn@unimelb.edu.au}
-%%
 %      \alignauthor Tim Baldwin\\    
 %      \affaddr{Department of CIS,}\\
 %      \affaddr{The University of Melbourne}\\
 %	\small{tb@ldwin.net}\\
-% %
-%\and
+%%
 %      \alignauthor Julian Brooke\\    
 %      \affaddr{Department of CIS,}\\
 %      \affaddr{The University of Melbourne}\\
 %\small{julian.brooke@unimelb.edu.au}
+%\and
+%      \alignauthor Trevor Cohn\\     
+%      \affaddr{Department of CIS,}\\
+%      \affaddr{The University of Melbourne}\\
+%      \small{t.cohn@unimelb.edu.au}
 %}
 
 %\numberofauthors{4} %  in this sample file, there are a *total*
