@@ -52,7 +52,7 @@
 \usepackage{url}
 \usepackage{array}
 \usepackage{amsmath}
-\usepackage{authblk}
+\usepackage{authblk,xspace}
 \usepackage[pdfborder={0 0 0}]{hyperref}% For email addresses
 
 \permission{\copyright 2017 International World Wide Web Conference Committee (IW3C2), 
@@ -90,15 +90,22 @@ http://dx.doi.org/10.1145/3041021.3054224  \\
  \ifdim\dimen0<0.0pt\relax\vskip-\dimen0\fi}
 
 
-\title{Pairwise Webpage Coreference Classification using Distant Supervision\vspace{-0.7cm}}
+
+\newcommand{\query}[1]{\texttt{#1}\xspace}
+
+
+\title{Pairwise Webpage Coreference Classification Using Distant Supervision\vspace{-0.7cm}}
 
 \author[1*]{\Large{S. Shivashankar}}
-\author[2*]{\Large{Tim Baldwin}}
+\author[2*]{\Large{Timothy Baldwin}}
 \author[3*]{\Large{Julian Brooke}}
 \author[4*]{\Large{Trevor Cohn}\vspace{-0.3cm}}
-\affil[*]{\large Department of CIS, \   The University of Melbourne, \   VIC, Australia}
-\affil[1]{\small \url{shivashankar@student.unimelb.edu.au}} 
-\affil[2,3,4] {\url{(tbaldwin, julian.brooke, t.cohn)@unimelb.edu.au}}
+\affil[*]{\large Computing and Information Systems, The University
+  of Melbourne, Australia}
+\affil[1]{\url{shivashankar@student.unimelb.edu.au}} 
+\affil[2,3,4] {\url{{tbaldwin,julian.brooke,t.cohn}@unimelb.edu.au}}
+
+
 \begin{document}
 
 
@@ -228,7 +235,7 @@ http://dx.doi.org/10.1145/3041021.3054224  \\
 \maketitle
 \begin{abstract}
 %Our objective is to determine whether two candidate endpoint URLs refer to the same underlying entity. 
-Multiple URL endpoints exist for an entity on the web. Hence we address the fundamental task of pairwise webpage coreference classification in-order to build coreferent set of endpoints. To strike a balance between unsupervised and supervised methods that require annotated data, we build a positive and unlabeled (PU) learning model where we obtain positive examples using web-search-based distant supervision.  We evaluate our proposed approach using SemEval-2007 WePS and ALTA-2016 shared task datasets.
+  A person or other entity is often associated with multiple URL endpoints on the web, motivating the task of determining whether a given pair of webpages is coreferent to a given entity. To strike a balance between unsupervised and supervised methods that require annotated data, we build a positive and unlabeled (PU) learning model, where we obtain positive examples using web search-based distant supervision.  We evaluate our proposed approach using the SemEval-2007 WePS and ALTA-2016 shared task datasets.
 
 %Since web URL end-points consist of entries from multiple KBs, we address a fundamental sub-task of cross-KB coreference resolution. 
 
@@ -301,7 +308,7 @@ Multiple URL endpoints exist for an entity on the web. Hence we address the fund
 %resolves textual mentions to the correct node in a knowledge base (KB). Linking 
 %For example, the URL \url{en.wikipedia.org/wiki/Barack_Obama} may be used in reference to former US president Barack Obama. Inlinks to this page are unlikely to refer to some other entity, so we consider this a disambiguating endpoint.
 
-Entity endpoints are URLs which reliably disambiguate named entity mentions on the web\cite{chisholm2016akbc}. Target entity can be a person, organization, location, event or concept. Entity linking systems typically rely on semantic resources such as Wikipedia, DBPedia to be used as end-points. Though they provide a rich context for entities, these sources do not achieve sufficient recall for many domains. In addition to traditional sources, fortunately many other end-points exist for an entity on the web. For instance,  social sources (e.g. facebook.com/*), news aggregation endpoints (e.g. \url{nytimes.com/topic/person/*}) and organisation directories (e.g. \url{gtlaw.com/People/*}) present largely untapped  sources of valuable entity information. Each source can be treated as a knowledge base (KB) containing entity related unstructured data (webpages). Webpage instances are identified using URL end-points. To build on the automatic approaches for discovering web KBs \cite{chisholm2016akbc}, we focus on the subsequent challenge of end-points reconciliation across KBs. Specifically, similar to ALTA 2016 shared task\footnote{http://alta.asn.au/events/sharedtask2016/description.html}, given two candidate endpoint URLs, the task is to determine whether they refer to the same underlying entity. This can be seen as a precursor to grouping web endpoints into coreferent sets. Web person search (WePS) is a closely related unsupervised task. However, WePS focuses on clustering entity mention pages instead of entity endpoint pages, i.e., the pages can have content related to multiple entities.
+Entity endpoints are URLs which reliably disambiguate named entity mentions on the web \cite{chisholm2016akbc}. Target entity can be a person, organisation, location, event or concept. Entity linking systems typically rely on semantic resources such as Wikipedia or DBPedia as end-points. Though they provide rich context for entities, such sources do have high coverage for many domains. In addition to traditional sources, fortunately many other end-points exist for an entity on the web: for instance,  social network sites (e.g.\ \url{facebook.com/*}), news aggregation endpoints (e.g.\ \url{nytimes.com/topic/person/*}) and organisation directories (e.g.\ \url{gtlaw.com/People/*}) are largely untapped  sources of valuable entity information. Each source can be treated as a knowledge base (KB) containing entity-related unstructured data (webpages) in the form of URL end-points. Building on automatic approaches for discovering web KBs \cite{chisholm2016akbc}, we focus on the downstream challenge of end-point reconciliation across KBs. Specifically, similar to the ALTA 2016 shared task\footnote{\url{http://alta.asn.au/events/sharedtask2016/}}, given two candidate endpoint URLs, the task is to determine whether they refer to the same underlying entity. This can be seen as a precursor to grouping web endpoints into coreferent sets. This relates to work on web person search (WePS), i.e.\ the unsupervised task of clustering entity mention pages instead of entity endpoint pages, i.e., the pages can have content related to multiple entities.
 %, where the overall goal is also to cluster web pages
 %Similar to ALTA 2016 shared task\footnote{http://alta.asn.au/events/sharedtask2016/description.html}, we address the problem of Cross-KB coreference resolution. 
 
@@ -326,7 +333,7 @@ Entity endpoints are URLs which reliably disambiguate named entity mentions on t
 % This also helps in building a weakly supervised model for tuning parameters in WePS systems.
 % To ease the constraint of requiring annotated data for this task, as done in state-of-art approaches \cite{chisholm2015entity}, we propose to leverage web-search-based distant supervision for acquiring labels automatically. 
 % 
-Rather than building a completely unsupervised model \cite{chisholm2016akbc, delgado2014data, nuray2009exploiting} or a fully supervised model as in the ALTA shared task, we propose an approach to obtain web-search-based distantly supervised positive examples and employ a positive and unlabeled (PU) learning algorithm \cite{Elkan:2008:LCO:1401890.1401920, liu2002partially}. The intuition is that, if web-search results with target entity name and context keyword from URL$_{a}$ as a query, retrieve  URL$_{b}$ in the top search results, then both URLs are more likely to refer to the same entity. But if the top results do not include URL$_{b}$, then it may not rule out the possibility completely for the pair to refer to the same entity. E.g., though Wikipedia (W1) and biography.com (B1) pages refer to the singer George Clinton, web search for query `George Clinton' AND `P-Funk', where context keyword `P-Funk' is extracted from \url{https://en.wikipedia.org/wiki/George_Clinton_(musician)} (W1), does not get \url{www.biography.com/people/george-clinton-537674} (B1) as one of the top pages. 
+Rather than building a completely unsupervised model \cite{chisholm2016akbc, delgado2014data, nuray2009exploiting} or a fully supervised model as in the ALTA shared task, we propose an approach to generating web search-based distantly supervised positive examples, and employ a positive and unlabeled (PU) learning algorithm \cite{Elkan:2008:LCO:1401890.1401920, liu2002partially}. The intuition underlying our method is that, if we query for a target entity name $e$ with the addition of a disambiguating keyword extracted from URL$_{a}$, and URL$_{b}$ appears in the top search results, then URL$_a$ and URL$_b$ are highly likely to refer to the same entity $e$ (i.e.\ be coreferent). If, on the other hand, URL$_{b}$ is not included in the top search results, it is not possible to draw any conclusion as to whether the two URLs are coreferent or not. For example, while Wikipedia (W1) and \url{biography.com} (B1) both contain end-point URLs for singer George Clinton, the search query \query{"George Clinton" AND P-Funk} --- where \query{P-Funk} is a disambiguating term extracted from \url{https://en.wikipedia.org/wiki/George_Clinton_(musician)} (W1) --- does not list  \url{www.biography.com/people/george-clinton-537674} (B1) as one of the top-ranked results. 
 %Analogous to \cite{hachenbergfinding}, we use web search for URL pair classification.
 
 \section{Proposed Approach}
@@ -338,7 +345,7 @@ Rather than building a completely unsupervised model \cite{chisholm2016akbc, del
 \textbf{2.1. Distant Supervision :} We construct web search query for distant supervision as follows:
 %\begin{itemize}
 %\item 
-\textbf{Q1:} Using target entity name and context information from $U_{1}$. Context information includes person name (PER) and organization (ORG) named entities provided by Stanford NER toolkit.  Similar to \cite{nuray2009exploiting}, we consider at most 8 context entities from the start of document for querying. The intuition is that context entities in the $title$ and document beginning are more likely to be relevant to the target entity. 
+\textbf{Q1:} Using target entity name and context information from $U_{1}$. Context information includes person name (PER) and organisation (ORG) named entities provided by Stanford NER toolkit.  Similar to \cite{nuray2009exploiting}, we consider at most 8 context entities from the start of document for querying. The intuition is that context entities in the $title$ and document beginning are more likely to be relevant to the target entity. 
 %\item 
 \textbf{Q2:} Similar to above, we use target entity name and context information from  $U_{2}$ for querying.
 %\end{itemize}
@@ -403,7 +410,7 @@ We see this as a variant approach built on \cite{Elkan:2008:LCO:1401890.1401920}
 %The objective of this step is to classify the unlabeled/ambiguous examples ($D_{u}$) as positive or negative based on its distance to the region of positive examples ($D_{p}$), the labeled set is denoted as $D^l_{u}$. With this we would have a dataset with positive and negative examples ($D_{p} \cup D^l_{u}$) which can be used with any standard binary classifier.
 %
 \section{Experiments}
-We use SemEval-2007 WePS development\footnote{http://nlp.uned.es/weps/weps-1} set and ALTA-2016 shared task datasets. We constructed a balanced 1000 URL pair dataset from webpages belonging to 49 persons. We only included pairs sharing the same person name from the webpages that still exist. Additionally, we considered end-point pages only (filtered using features from \cite{chisholm2016akbc}). If the pair refers to same entity, then it is a positive example, negative otherwise. We used a random split of 70-30 for training and testing. The ALTA dataset is a balanced set which contains 400 pairs of URLs that can refer to any entity -- person, organization, location, etc. We used 300 pairs for training and retained the private test set of 100 pairs from competition for testing. Note that we use manual annotations provided in the dataset only for testing.
+We use SemEval-2007 WePS development\footnote{http://nlp.uned.es/weps/weps-1} set and ALTA-2016 shared task datasets. We constructed a balanced 1000 URL pair dataset from webpages belonging to 49 persons. We only included pairs sharing the same person name from the webpages that still exist. Additionally, we considered end-point pages only (filtered using features from \cite{chisholm2016akbc}). If the pair refers to same entity, then it is a positive example, negative otherwise. We used a random split of 70-30 for training and testing. The ALTA dataset is a balanced set which contains 400 pairs of URLs that can refer to any entity -- person, organisation, location, etc. We used 300 pairs for training and retained the private test set of 100 pairs from competition for testing. Note that we use manual annotations provided in the dataset only for testing.
 
 We extract standard set of features proposed by best performing systems in the respective competitions. Briefly, the 8 features created on WePS dataset include: unigram based cosine similarity, n-gram based cosine similarity, named entities phrase based cosine similarity (obtained using Stanford NER), title unigram Jaccard Coefficient score, URL character 4-gram Jaccard Coefficient, webpage contents' vector dot product similarity obtained using average Word2Vec representation, document length difference and URL path length difference. We extract the same set of features on ALTA dataset, in addition we also compute semantic similarity\footnote{https://dandelion.eu/semantic-text/text-similarity-demo/} and machine translation metrics\footnote{https://github.com/jhclark/multeval} (BLEU, METEOR and TER) between pairs of Bing search snippet text that was provided in the dataset (in total 12 features).
 %one-class SVM (OSVM) using $D_{p}$ only
@@ -521,3 +528,8 @@ We have evaluated two key contributions: (a) use of distant supervision for web 
 \bibliographystyle{abbrv}
 \bibliography{WWW}  
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
