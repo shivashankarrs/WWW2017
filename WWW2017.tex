@@ -1,248 +1,51 @@
-% This is "sig-alternate.tex" V2.1 April 2013
-% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
-%
-% This example file demonstrates the use of the 'sig-alternate.cls'
-% V2.5 LaTeX2e document class file. It is for those submitting
-% articles to ACM Conference Proceedings WHO DO NOT WISH TO
-% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
-% The 'sig-alternate.cls' file will produce a similar-looking,
-% albeit, 'tighter' paper resulting in, invariably, fewer pages.
-%
-% ----------------------------------------------------------------------------------------------------------------
-% This .tex file (and associated .cls V2.5) produces:
-%       1) The Permission Statement
-%       2) The Conference (location) Info information
-%       3) The Copyright Line with ACM data
-%       4) NO page numbers
-%
-% as against the acm_proc_article-sp.cls file which
-% DOES NOT produce 1) thru' 3) above.
-%
-% Using 'sig-alternate.cls' you have control, however, from within
-% the source .tex file, over both the CopyrightYear
-% (defaulted to 200X) and the ACM Copyright Data
-% (defaulted to X-XXXXX-XX-X/XX/XX).
-% e.g.
-% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
-% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
-%
-% ---------------------------------------------------------------------------------------------------------------
-% This .tex source is an example which *does* use
-% the .bib file (from which the .bbl file % is produced).
-% REMEMBER HOWEVER: After having produced the .bbl file,
-% and prior to final submission, you *NEED* to 'insert'
-% your .bbl file into your source .tex file so as to provide
-% ONE 'self-contained' source file.
-%
-% ================= IF YOU HAVE QUESTIONS =======================
-% Questions regarding the SIGS styles, SIGS policies and
-% procedures, Conferences etc. should be sent to
-% Adrienne Griscti (griscti@acm.org)
-%
-% Technical questions _only_ to
-% Gerald Murray (murray@hq.acm.org)
-% ===============================================================
-%
-% For tracking purposes - this is V2.0 - May 2012
-
-
 \documentclass[letterpaper]{sig-alternate-2013}
 
-\usepackage{floatrow}
-%\usepackage{url}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\usepackage[
+  pass,% keep layout unchanged 
+  % showframe,% show the layout
+]{geometry}
+
 \usepackage[hyphens]{url}
 \usepackage{array}
 \usepackage{amsmath}
-\usepackage{authblk,xspace,paralist,booktabs}
-\usepackage[pdfborder={0 0 0}]{hyperref}% For email addresses
-
-\makeatletter
-\g@addto@macro{\UrlBreaks}{\UrlOrds}
-\makeatother
+\usepackage{xspace,paralist,booktabs}
 
 \permission{\copyright 2017 International World Wide Web Conference Committee (IW3C2), 
 published under Creative Commons CC BY 4.0 License.}
-\conferenceinfo{WWW 2017,}{April 3--7, 2017, Perth, Australia.}
+\conferenceinfo{WWW 2017 Companion,}{April 3--7, 2017, Perth, Australia.}
 \copyrightetc{ACM \the\acmcopyr}
-\crdata{978-1-4503-4914-7/17/04. \\
-http://dx.doi.org/10.1145/3041021.3054224  \\
+\crdata{978-1-4503-4913-0/17/04. \\
+http://dx.doi.org/10.1145/3038912.3038914 \\
 \includegraphics{cc.png}
 %<img src="http://i.creativecommons.org/l/by/4.0/88x31.png" /> 
 }
  
 \clubpenalty=10000
 \widowpenalty = 10000
-
-\def\@maketitle{\newpage
- \null
- \setbox\@acmtitlebox\vbox{%
-\baselineskip 20pt
-\vskip 2em                   % Vertical space above title.
-   \begin{center}
-    {\ttlfnt \@title\par}       % Title set in 18pt Helvetica (Arial) bold size.
-    \vskip 1.5em                % Vertical space after title.
-%This should be the subtitle.
-{\subttlfnt \the\subtitletext\par}\vskip 1.25em%\fi
-    {\baselineskip 16pt\aufnt   % each author set in \12 pt Arial, in a
-     \lineskip .5em             % tabular environment
-     \begin{tabular}[t]{c}\@author
-     \end{tabular}\par}
-    \vskip 1.5em               % Vertical space after author.
-   \end{center}}
- \dimen0=\ht\@acmtitlebox
-% \advance\dimen0 by -12.75pc\relax % comment by Marco Daniel
- \unvbox\@acmtitlebox
- \ifdim\dimen0<0.0pt\relax\vskip-\dimen0\fi}
-
-
+ 
 
 \newcommand{\query}[1]{\texttt{#1}\xspace}
 \newcommand{\ex}[1]{\textit{#1}\xspace}
 \newcommand{\tabref}[1]{Table~\ref{#1}\xspace}
 \newcommand{\secref}[2][]{Section#1~\ref{#2}\xspace}
 
-
-
-
-\title{Pairwise Webpage Coreference Classification Using Distant Supervision\vspace{-0.7cm}}
-
-\author[1*]{\Large{S. Shivashankar}}
-\author[2*]{\Large{Timothy Baldwin}}
-\author[3*]{\Large{Julian Brooke}}
-\author[4*]{\Large{Trevor Cohn}\vspace{-0.3cm}}
-\affil[*]{\large Computing and Information Systems, The University
-  of Melbourne, Australia}
-\affil[1]{\url{shivashankar@student.unimelb.edu.au}} 
-\affil[2,3,4] {\url{{tbaldwin,julian.brooke,t.cohn}@unimelb.edu.au}}
-
-\hyphenation{spec-ific-ally}
-
 \begin{document}
 
 
-% Copyright
-%\setcopyright{acmcopyright}
-%\setcopyright{acmlicensed}
-%\setcopyright{rightsretained}
-%\setcopyright{usgov}
-%\setcopyright{usgovmixed}
-%\setcopyright{cagov}
-%\setcopyright{cagovmixed}
+\title{Pairwise Webpage Coreference Classification Using Distant Supervision}
 
 
-% DOI
-%\doi{10.475/123_4}
+\numberofauthors{1} 
+\author{
+\alignauthor 
+	S. Shivashankar, Timothy Baldwin, Julian Brooke, and Trevor Cohn \\
+	\affaddr{Computing and Information Systems} \\ 
+	\affaddr{The University of Melbourne, Australia} \\
+	\affaddr{shivashankar@student.unimelb.edu.au, \{tbaldwin,julian.brooke,t.cohn\}@unimelb.edu.au} 
+}
 
-% ISBN
-%\isbn{123-4567-24-567/08/06}
-
-%Conference
-%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
-
-%\acmPrice{\$15.00}
-
-%
-% --- Author Metadata here ---
-%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
-%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
-%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
-% --- End of Author Metadata ---
-
-%\title{Pairwise Web URL classification for Cross-KB Coreference Resolution using Distant Supervision}
-%\title{Pairwise Web URL classification for Cross-KB Entity Linking using Distant Supervision}
-%\title{Pairwise Webpage Coreference Classification using Distant Supervision}
-%
-% You need the command \numberofauthors to handle the 'placement
-% and alignment' of the authors beneath the title.
-%
-% For aesthetic reasons, we recommend 'three authors at a time'
-% i.e. three 'name/affiliation blocks' be placed beneath the title.
-%
-% NOTE: You are NOT restricted in how many 'rows' of
-% "name/affiliations" may appear. We just ask that you restrict
-% the number of 'columns' to three.
-%
-% Because of the available 'opening page real-estate'
-% we ask you to refrain from putting more than six authors
-% (two rows with three columns) beneath the article title.
-% More than six makes the first-page appear very cluttered indeed.
-%
-% Use the \alignauthor commands to handle the names
-% and affiliations for an 'aesthetic maximum' of six authors.
-% Add names, affiliations, addresses for
-% the seventh etc. author(s) as the argument for the
-% \additionalauthors command.
-% These 'additional authors' will be output/set for you
-% without further effort on your part as the last section in
-% the body of your article BEFORE References or any Appendices.
-
-
-%\numberofauthors{4}
-%\author{
-%      \alignauthor S. Shivashankar\\      
-%      \affaddr{Department of CIS,}\\
-%      \affaddr{The University of Melbourne}\\
-%      \small{shivashankar@student.unimelb.edu.au}
-%%
-%      \alignauthor Tim Baldwin\\    
-%      \affaddr{Department of CIS,}\\
-%      \affaddr{The University of Melbourne}\\
-%	\small{tb@ldwin.net}\\
-%%
-%      \alignauthor Julian Brooke\\    
-%      \affaddr{Department of CIS,}\\
-%      \affaddr{The University of Melbourne}\\
-%\small{julian.brooke@unimelb.edu.au}
-%\and
-%      \alignauthor Trevor Cohn\\     
-%      \affaddr{Department of CIS,}\\
-%      \affaddr{The University of Melbourne}\\
-%      \small{t.cohn@unimelb.edu.au}
-%}
-
-%\numberofauthors{4} %  in this sample file, there are a *total*
-%% of EIGHT authors. SIX appear on the 'first-page' (for formatting
-%% reasons) and the remaining two appear in the \additionalauthors section.
-%%
-%\author{
-%% You can go ahead and credit any number of authors here,
-%% e.g. one 'row of three' or two rows (consisting of one row of three
-%% and a second row of one, two or three).
-%%
-%% The command \alignauthor (no curly braces needed) should
-%% precede each author name, affiliation/snail-mail address and
-%% e-mail address. Additionally, tag each line of
-%% affiliation/address with \affaddr, and tag the
-%% e-mail address with \email.
-%%
-%% 1st. author
-%\alignauthor S. Shivashankar\\
-%%  \affaddr{Department of CIS,}\\
-% %  S\affaddr{University of Melbourne}\\
-%       \email{shivashankar@student.unimelb.edu.au}
-%% 2nd. author
-%\alignauthor
-%Trevor Cohn\\
-% %   \affaddr{Department of CIS,}\\
-%   %    \affaddr{University of Melbourne}\\
-%	\small {t.cohn@unimelb.edu.au}
-%% 3rd. author
-%\alignauthor Tim Baldwin\\
-%  %     \affaddr{Department of CIS,}\\
-%   %    \affaddr{University of Melbourne}\\
-%       \small{tb@ldwin.net}
-%\alignauthor Julian Brooke\\
-%  %     \affaddr{Department of CIS,}\\
-%  %     \affaddr{University of Melbourne}\\
-%       \small{julian.brooke@gmail.com}
-%
-%   \sharedaffiliation
-%      \affaddr{Department of Computing and Information System}  \\
-%      \affaddr{The University of Melbourne}   \\
-%      \affaddr{VIC, Australia}
-%}
-
-%To achieve a good coverage of entities across multiple domains, web URL end-points can be considered as a knowledge base (KB). Since 
 \maketitle
 \begin{abstract}
 %Our objective is to determine whether two candidate endpoint URLs refer to the same underlying entity. 
@@ -264,53 +67,6 @@ http://dx.doi.org/10.1145/3041021.3054224  \\
 \end{abstract}
 
 
-%
-% The code below should be generated by the tool at
-% http://dl.acm.org/ccs.cfm
-% Please copy and paste the code instead of the example below. 
-%
-%\begin{CCSXML}
-%<ccs2012>
-% <concept>
-%  <concept_id>10010520.10010553.10010562</concept_id>
-%  <concept_desc>Computer systems organization~Embedded systems</concept_desc>
-%  <concept_significance>500</concept_significance>
-% </concept>
-% <concept>
-%  <concept_id>10010520.10010575.10010755</concept_id>
-%  <concept_desc>Computer systems organization~Redundancy</concept_desc>
-%  <concept_significance>300</concept_significance>
-% </concept>
-% <concept>
-%  <concept_id>10010520.10010553.10010554</concept_id>
-%  <concept_desc>Computer systems organization~Robotics</concept_desc>
-%  <concept_significance>100</concept_significance>
-% </concept>
-% <concept>
-%  <concept_id>10003033.10003083.10003095</concept_id>
-%  <concept_desc>Networks~Network reliability</concept_desc>
-%  <concept_significance>100</concept_significance>
-% </concept>
-%</ccs2012>  
-%\end{CCSXML}
-
-%\ccsdesc[500]{Computer systems organization~Embedded systems}
-%\ccsdesc[300]{Computer systems organization~Redundancy}
-%\ccsdesc{Computer systems organization~Robotics}
-%\ccsdesc[100]{Networks~Network reliability}
-
-
-%
-% End generated code
-%
-
-%
-%  Use this command to print the description
-%
-%\printccsdesc
-
-% We no longer use \terms command
-%\terms{Theory}
 
 \keywords{Webpage Coreference; End-point Disambiguation; Distant Supervision; PU Learning; Semi-supervised Learning}
 
@@ -506,11 +262,11 @@ The distant supervision-based model based on \secref{sec:querying} (``BSVM'') pe
   \centering
 \begin{small}
  \begin{tabular}{lcccccc}
-    \toprule
-Dataset &  BSVM &Spy-SVM& SPUL  & HC & DP-SVM  \\
+     \toprule
+Dataset &  BSVM &Spy-SVM& SPUL  & HC & DP-SVM  \\ 
  \midrule
-  WePS &   0.472 &  0.630 & 0.516  &  0.408 & \textbf{0.653}\\
-    ALTA &  0.500 &0.540 & 0.587  &  0.481 & \textbf{0.608}\\
+  WePS &   0.472 &  0.630 & 0.516  &  0.408 & \textbf{0.653}\\ 
+    ALTA &  0.500 &0.540 & 0.587  &  0.481 & \textbf{0.608}\\ 
 % TJB: normalised to 3 decimal places, but @Shiva to check that the results are correct
  \bottomrule
   \end{tabular}
@@ -519,6 +275,7 @@ Dataset &  BSVM &Spy-SVM& SPUL  & HC & DP-SVM  \\
 \caption{Micro-averaged F-score}
 \label{tab:results}
 \end{table}
+
 %\begin{small}
 %\begin{center}
 %\small \textbf{Table1: Micro-Average F-measure}
@@ -557,8 +314,3 @@ We have proposed an approach to determining whether two endpoint URLs refer to t
 \bibliographystyle{abbrv}
 \bibliography{WWW}  
 \end{document}
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
