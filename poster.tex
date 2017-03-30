@@ -42,7 +42,7 @@
 			                \item { \color{gray} \tt Barack Obama} $\Leftrightarrow$ {\color{blue} \small \url{barackobama.com/}} and {\color{blue} \small \url{en.wikipedia.org/wiki/Barack_Obama}}
 					\item { \color{gray} \tt Donald Trump} $\centernot\Leftrightarrow$ {\color{blue} \small \url{twitter.com/realDonaldTrump}} and {\color{blue}  \small \url{instagram.com/ivankatrump}}
 			                \end{itemize}
-	              {\color{cyan} Motivates the task of  \textbf{webpage coreference classification} for a given entity!}
+	              {\color{brown} Motivates the task of  \textbf{webpage coreference classification} for a given entity!}
     				\end{myblock}\vfill
 					\begin{myblock}{Problem Setup}
 						\vspace{0.5em}
@@ -106,7 +106,7 @@
 \item \textbf{$Q_j$:} Similar to the above, we generate context information from  $U_{j}$.
 \end{itemize}
 \item E.g., for URL pairs: {\color{blue} \small \url{imperial.ac.uk/people/f.allen}} and {\color{blue} \small \url{linkedin.com/in/franklin-allen-0557906}}
-a query constructed is {\color{cyan} \tt \small {"Franklin Allen Brevan Howard Centre"}}
+a query constructed is {\color{brown} \tt \small {"Franklin Allen Brevan Howard Centre"}}
 \end{itemize}
 \vspace{0.5em}
 \end{block} \vfill
@@ -121,6 +121,8 @@ a query constructed is {\color{cyan} \tt \small {"Franklin Allen Brevan Howard C
 
 \begin{block}{Label Propagation using Distant Supervision}
 \begin{itemize}
+\item Initialize Labels
+\begin{itemize}
 \item For each query in $Q_i$, we check to see if $U_{j}$ is present in the top-$K$ search results $S_{ij}$
 	\vspace{0.5em}
 \item Conversely if $U_i$ is present in the top-$K$ results, $S_{ji}$ for each query in $Q_j$
@@ -131,9 +133,10 @@ a query constructed is {\color{cyan} \tt \small {"Franklin Allen Brevan Howard C
 \item $D_{p} \gets D[\hat{y_{ij}}=1]$, $D_{u} \gets D_{u} \setminus D[\hat{y_{ij}}=1]$.
 \end{itemize}
 \end{itemize}
+%\end{itemize}
 \vspace{0.5em}
 
-\item \textbf{Expand Positive Labeled Set:}
+\item {Expand Positive Labeled Set}
 \begin{itemize}
 \item Step 1: Randomly select $N$ instances from $D_{p}$, and hold them out in $S_{p}$.
 	\vspace{0.5em}
@@ -147,6 +150,7 @@ a query constructed is {\color{cyan} \tt \small {"Franklin Allen Brevan Howard C
 \item $D_{p} \leftarrow D_{p} \cup D_{p}^*$, $D_{n} \leftarrow D_{u} \setminus D_{p}^*$
 \vfill
 \end{itemize}
+              \end{itemize}
               \end{itemize}
 \vspace{0.5em}
             \end{block}
