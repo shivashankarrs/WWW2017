@@ -1,5 +1,5 @@
 \documentclass{beamer}
-\usepackage[orientation=portrait,size=a0,scale=1.45,debug]{beamerposter}
+\usepackage[orientation=portrait,size=a0,scale=1.52,debug]{beamerposter}
 \mode<presentation>{\usetheme{ZH}}
 \usepackage[utf8]{inputenc}
 \usepackage[german, english]{babel} % required for rendering German special characters
@@ -39,8 +39,8 @@
 						\textbf{A person or other entity is often associated with multiple URL endpoints on the web}
 						\vspace{0.5em}
 			               \begin{itemize}
-			                \item { \color{gray} Barack Obama} $\Leftrightarrow$ {\color{blue} \small \url{https://barackobama.com/}} and {\color{blue} \small \url{https://en.wikipedia.org/wiki/Barack_Obama}}
-					\item { \color{gray} Donald Trump} $\centernot\Leftrightarrow$ {\color{blue} \small \url{https://twitter.com/realDonaldTrump}} and {\color{blue}  \small \url{https://www.instagram.com/ivankatrump}}
+			                \item { \color{gray} \tt Barack Obama} $\Leftrightarrow$ {\color{blue} \small \url{barackobama.com/}} and {\color{blue} \small \url{en.wikipedia.org/wiki/Barack_Obama}}
+					\item { \color{gray} \tt Donald Trump} $\centernot\Leftrightarrow$ {\color{blue} \small \url{twitter.com/realDonaldTrump}} and {\color{blue}  \small \url{instagram.com/ivankatrump}}
 			                \end{itemize}
 	              {\color{cyan} Motivates the task of  \textbf{webpage coreference classification} for a given entity!}
     				\end{myblock}\vfill
@@ -49,7 +49,7 @@
 	 \begin{itemize}
 	\item We assume access to web KBs based on automatic crawling
 	\begin{itemize}
-	 \item social networks (e.g. {\color{blue} \url{facebook.com/*})}, news aggregation endpoints (e.g. {\color{blue} \url{nytimes.com/topic/person/*}}) and organisation directories (e.g.  {\color{blue} \url{www.gtlaw.com/People/*}})
+	 \item social networks (e.g. {\color{blue} \url{facebook.com/*})}, news aggregation endpoints (e.g. {\color{blue} \url{nytimes.com/topic/person/*}}) and organisation directories (e.g.  {\color{blue} \url{gtlaw.com/People/*}})
 	\end{itemize}     	
 \item  Given a training dataset $D$ with pairs of web URLs 
          \begin{itemize}
@@ -70,9 +70,9 @@
 
               \begin{itemize}
 		\item  We obtain positive examples using web-search-based distant supervision
-		\item  Search query {\color{gray} George Clinton AND P-Funk} fetches {\small \color{blue} \url{https://en.wikipedia.org/wiki/George_Clinton_(musician)}}
+		\item  Search query {\color{gray} \tt George Clinton AND P-Funk} fetches {\small \color{blue} \url{en.wikipedia.org/wiki/George_Clinton_(musician)}}
 		\begin{itemize}
-		\item But not {\small \color{blue} \url{http://www.biography.com/people/george-clinton-537674}}
+		\item But not {\small \color{blue} \url{biography.com/people/george-clinton-537674}}
      \end{itemize}     
 		\item  We build a positive and unlabelled (PU) learning model
      \end{itemize}     
@@ -88,8 +88,10 @@
 						\vspace{0.5em}
 						\begin{figure}
 							\begin{minipage}{0.94\textwidth}
-								\centering\includegraphics[height=0.7\textwidth, width=0.7\textwidth, keepaspectratio]{img/FlowWWW.png}
+								\centering\includegraphics[height=0.7\textwidth, width=1\textwidth, keepaspectratio]{img/FlowWWW1.png}
 							\end{minipage}
+						\vspace{0.5em}
+
 						\end{figure}
              \begin{itemize}
 		\item Any binary classifier can be trained on the expanded labeled set 
@@ -103,8 +105,8 @@
 \item \textbf{$Q_i$:} Using the target entity name and context information from $U_{i}$
 \item \textbf{$Q_j$:} Similar to the above, we generate context information from  $U_{j}$.
 \end{itemize}
-\item E.g., for URL pairs: {\color{blue} \small \url{www.imperial.ac.uk/people/f.allen}} and {\color{blue} \small \url{https://www.linkedin.com/in/franklin-allen-0557906}}
-a query constructed is {\color{cyan} \small {\textit{``Franklin Allen Brevan Howard Centre"}}}
+\item E.g., for URL pairs: {\color{blue} \small \url{www.imperial.ac.uk/people/f.allen}} and {\color{blue} \small \url{www.linkedin.com/in/franklin-allen-0557906}}
+a query constructed is {\color{cyan} \tt \small {"Franklin Allen Brevan Howard Centre"}}
 \end{itemize}
 \vspace{0.5em}
 \end{block} \vfill
@@ -117,7 +119,7 @@ a query constructed is {\color{cyan} \small {\textit{``Franklin Allen Brevan How
 
 
 
-\begin{block}{Initialize Labels}
+\begin{block}{Label Propagation using Distant Supervision}
 \begin{itemize}
 \item For each query in $Q_i$, we check to see if $U_{j}$ is present in the top-$K$ search results $S_{ij}$
 	\vspace{0.5em}
@@ -130,10 +132,8 @@ a query constructed is {\color{cyan} \small {\textit{``Franklin Allen Brevan How
 \end{itemize}
 \end{itemize}
 \vspace{0.5em}
-\end{block}
-\vfill
 
-\begin{block}{Labelling Unlabelled Pairs}
+\item \textbf{Expand Positive Labeled Set:}
 \begin{itemize}
 \item Step 1: Randomly select $N$ instances from $D_{p}$, and hold them out in $S_{p}$.
 	\vspace{0.5em}
@@ -197,9 +197,10 @@ a query constructed is {\color{cyan} \small {\textit{``Franklin Allen Brevan How
               \begin{figure}
                 \footnotesize
                 \centering
+
         \begin{figure}
 							\begin{minipage}{1.22\textwidth}
-								\centering\includegraphics[height=0.5\textwidth,width=1.25\textwidth,keepaspectratio]{img/ResultsWWW3.pdf}
+								\centering\includegraphics[height=0.4\textwidth,width=1.25\textwidth,keepaspectratio]{img/ResultsWWW3.pdf}
 							\end{minipage}
 						\end{figure}
 %\begin{table}[t]
